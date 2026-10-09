@@ -17,7 +17,7 @@ Just me, for now.
 - Sharing scores with other people
 
 ## Content and tone
-To follow.
+To follow. The current copy is placeholder.
 
 ## Look and feel
 - Modern and easy to read
@@ -28,5 +28,15 @@ To follow.
 ## Done means
 I can open it on my phone, answer a series of questions, see my score at the end, and choose to play again.
 
-## Open questions
-See the conversation with Claude. Answers will be added here as we decide them.
+## Decisions
+- **Words:** a library of about 430 common nouns, tagged by level (A1 to B2). Claude compiled the list; the levels are approximate.
+- **Round length:** 10 words per game, picked at random with no repeats.
+- **English meaning:** shown only after the user answers.
+- **After answering:** the user taps a "Next" button to continue.
+- **Scoring:** 1 point per correct answer. No streaks for now.
+- **End screen:** the score, plus a list of the words the user got wrong.
+- **Name:** "Der Die Das" as a placeholder.
+
+## Ideas for later
+- Let the user choose a level (A1, A2, B1, B2) before playing.
+- Colour-code the genders (blue for der, red for die, green for das).

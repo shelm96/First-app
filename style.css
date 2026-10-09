@@ -1,0 +1,100 @@
+/* Basic styling for the first version. We'll make it look nicer in step 2. */
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #f7f7f7;
+  color: #222;
+}
+
+main {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.primary {
+  margin-top: 24px;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 12px;
+  background: #222;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.progress {
+  color: #666;
+}
+
+.word {
+  margin: 40px 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.answer {
+  padding: 16px;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  background: #fff;
+  font-size: 1.3rem;
+}
+
+/* Keep the text readable after an answer is chosen */
+.answer:disabled {
+  color: inherit;
+  cursor: default;
+}
+
+/* Right and wrong answers use colour and a symbol, so they don't rely on colour alone */
+.answer.correct {
+  border-color: #2e7d32;
+  background: #e8f5e9;
+}
+
+.answer.correct::after {
+  content: " ✓";
+}
+
+.answer.wrong {
+  border-color: #c62828;
+  background: #ffebee;
+}
+
+.answer.wrong::after {
+  content: " ✗";
+}
+
+.feedback {
+  margin-top: 24px;
+  font-size: 1.2rem;
+}
+
+.final-score {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#mistakes-list {
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+#mistakes-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Der Die Das</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+
+    <!-- Screen 1: Start -->
+    <section id="start-screen" class="screen">
+      <h1>Der Die Das</h1>
+      <p>Choose the right article for each German noun.</p>
+      <button id="start-button" class="primary">Start</button>
+    </section>
+
+    <!-- Screen 2: Question -->
+    <section id="question-screen" class="screen" hidden>
+      <p class="progress">
+        Question <span id="question-number">1</span> of <span id="question-total">10</span>
+        · Score: <span id="score">0</span>
+      </p>
+
+      <p id="word" class="word"></p>
+
+      <div class="answers">
+        <button class="answer" data-gender="der">der</button>
+        <button class="answer" data-gender="die">die</button>
+        <button class="answer" data-gender="das">das</button>
+      </div>
+
+      <p id="feedback" class="feedback" hidden></p>
+
+      <button id="next-button" class="primary" hidden>Next</button>
+    </section>
+
+    <!-- Screen 3: Results -->
+    <section id="results-screen" class="screen" hidden>
+      <h1>Your score</h1>
+      <p id="final-score" class="final-score"></p>
+
+      <h2>Words to practise</h2>
+      <ul id="mistakes-list"></ul>
+
+      <button id="replay-button" class="primary">Play again</button>
+    </section>
+
+  </main>
+
+  <script src="words.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
