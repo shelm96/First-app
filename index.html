@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#D85A30">
+  <title>rally!</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="phone">
+
+    <main class="screens">
+      <section class="screen is-active" id="screen-home" aria-label="Make plans">
+        <header class="top-bar">
+          <h1 class="logo" aria-label="rally!">
+            <svg class="logo-flag" viewBox="0 0 24 36" aria-hidden="true">
+              <path class="flag-pole" d="M5 34V3"/>
+              <path class="flag-cloth" d="M5.5 4h16.5l-4.5 5.5 4.5 5.5H5.5z"/>
+            </svg>
+            <span aria-hidden="true">rally!</span>
+          </h1>
+        </header>
+
+        <div class="card status-card" id="status-card">
+          <div class="toggle-row">
+            <span class="toggle-label">
+              <span id="toggle-label">I'm free tonight</span>
+              <span class="status-dot" aria-hidden="true"></span>
+            </span>
+            <button class="switch" id="free-tonight" role="switch" aria-checked="false" aria-labelledby="toggle-label">
+              <span class="switch-knob"></span>
+            </button>
+          </div>
+
+          <label class="visibility">
+            <span>Who can see this</span>
+            <select id="visibility"></select>
+          </label>
+        </div>
+
+        <section class="card plan-card" aria-labelledby="tonight-title">
+          <span class="sticker" id="free-sticker"></span>
+          <h2 class="section-title" id="tonight-title">Make plans tonight</h2>
+          <ul class="avatar-row" id="free-friends-row"></ul>
+          <div class="select-row">
+            <p class="select-hint" id="select-hint" aria-live="polite"></p>
+            <button class="text-btn" id="select-all"></button>
+          </div>
+          <div class="action-row">
+            <button class="btn-secondary" id="message-btn" disabled>Message</button>
+            <button class="btn-primary" id="book-btn" disabled>Book an activity</button>
+          </div>
+        </section>
+
+        <section class="card plan-card" aria-labelledby="later-title">
+          <h2 class="section-title" id="later-title">Make plans for later</h2>
+          <p class="plan-card-text">Pick a window and we'll find dates that work for everyone.</p>
+          <button class="btn-secondary btn-wide" id="plan-later">Make plans for later</button>
+        </section>
+      </section>
+
+      <section class="screen" id="screen-activities" data-flow aria-label="Choose an activity">
+        <header class="flow-header">
+          <button class="back" id="activities-back" aria-label="Back">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg>
+          </button>
+          <div>
+            <h1 class="flow-title">Pick something to do</h1>
+            <p class="flow-sub" id="activities-sub"></p>
+          </div>
+        </header>
+
+        <div class="filters" id="filters"></div>
+        <p class="result-count" id="result-count" aria-live="polite"></p>
+        <ul class="cards" id="activity-list"></ul>
+      </section>
+
+      <section class="screen" id="screen-later-who" data-flow aria-label="Who is it with">
+        <header class="flow-header">
+          <button class="back" id="later-who-back" aria-label="Back">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg>
+          </button>
+          <div>
+            <h1 class="flow-title">Who's it with?</h1>
+            <p class="flow-sub">Make plans for later</p>
+          </div>
+        </header>
+        <div id="later-who-content"></div>
+      </section>
+
+      <section class="screen" id="screen-later-when" data-flow aria-label="When could you meet">
+        <header class="flow-header">
+          <button class="back" id="later-when-back" aria-label="Back">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg>
+          </button>
+          <div>
+            <h1 class="flow-title">When could you meet?</h1>
+            <p class="flow-sub" id="later-when-sub"></p>
+          </div>
+        </header>
+        <div id="later-when-content"></div>
+      </section>
+
+      <section class="screen" id="screen-later-availability" data-flow aria-label="Your availability">
+        <header class="flow-header">
+          <button class="back" id="later-availability-back" aria-label="Back">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg>
+          </button>
+          <div>
+            <h1 class="flow-title">Your availability</h1>
+            <p class="flow-sub">Make plans for later</p>
+          </div>
+        </header>
+        <div id="later-availability-content"></div>
+      </section>
+
+      <section class="screen" id="screen-later-ask" data-flow aria-label="Ask friends">
+        <header class="flow-header">
+          <button class="back" id="later-ask-back" aria-label="Back">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg>
+          </button>
+          <div>
+            <h1 class="flow-title">Ask friends</h1>
+            <p class="flow-sub" id="later-ask-sub"></p>
+          </div>
+        </header>
+        <div id="later-ask-content"></div>
+      </section>
+
+      <section class="screen" id="screen-later-results" data-flow aria-label="Finding a date">
+        <header class="flow-header">
+          <button class="back" id="later-results-back" aria-label="Back">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg>
+          </button>
+          <div>
+            <h1 class="flow-title" id="later-results-title">Finding a date</h1>
+            <p class="flow-sub" id="later-results-sub"></p>
+          </div>
+        </header>
+        <div id="later-results-content"></div>
+      </section>
+
+      <section class="screen" id="screen-change" data-flow aria-label="Change booking">
+        <header class="flow-header">
+          <button class="back" id="change-back" aria-label="Back">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg>
+          </button>
+          <div>
+            <h1 class="flow-title">Change booking</h1>
+            <p class="flow-sub" id="change-sub"></p>
+          </div>
+        </header>
+        <div id="change-content"></div>
+      </section>
+
+      <section class="screen" id="screen-message" data-flow aria-label="Message">
+        <header class="flow-header">
+          <button class="back" id="message-back" aria-label="Back">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg>
+          </button>
+          <div>
+            <h1 class="flow-title">Message</h1>
+            <p class="flow-sub" id="message-sub"></p>
+          </div>
+        </header>
+        <div id="message-content"></div>
+      </section>
+
+      <section class="screen" id="screen-invites" data-flow aria-label="Invites">
+        <header class="flow-header">
+          <button class="back" id="invites-back" aria-label="Back">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg>
+          </button>
+          <div>
+            <h1 class="flow-title">Invites sent</h1>
+            <p class="flow-sub" id="invites-sub"></p>
+          </div>
+        </header>
+        <div id="invites-content"></div>
+      </section>
+
+      <section class="screen" id="screen-booking" data-flow aria-label="Book">
+        <header class="flow-header">
+          <button class="back" id="booking-back" aria-label="Back">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg>
+          </button>
+          <div>
+            <h1 class="flow-title">Book</h1>
+            <p class="flow-sub" id="booking-sub">Tonight</p>
+          </div>
+        </header>
+        <div id="booking-content"></div>
+      </section>
+
+      <section class="screen" id="screen-confirmed" data-flow aria-label="Booking confirmed">
+        <div id="confirmed-content"></div>
+      </section>
+
+      <section class="screen" id="screen-plans" aria-label="My plans">
+        <header class="top-bar"><h1 class="screen-title">My plans</h1></header>
+        <div id="plans-content"></div>
+      </section>
+
+      <section class="screen" id="screen-friends" aria-label="Friends">
+        <header class="top-bar"><h1 class="screen-title">Friends</h1></header>
+        <div id="friends-content"></div>
+      </section>
+
+      <section class="screen" id="screen-profile" aria-label="Profile">
+        <header class="top-bar"><h1 class="screen-title">Profile</h1></header>
+        <div id="profile-content"></div>
+      </section>
+    </main>
+
+    <nav class="tab-bar" aria-label="Main">
+      <button class="tab is-active" data-target="home" aria-current="page">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 21V3"/><path d="M6 4.5h12.5L15 9l3.5 4.5H6z"/></svg>
+        <span>Make plans</span>
+      </button>
+      <button class="tab" data-target="plans">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
+        <span>My plans</span>
+      </button>
+      <button class="tab" data-target="friends">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8.5" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M16 5.2a3.4 3.4 0 0 1 0 6.6M18 14.4c2.2.7 3.5 2.6 3.5 5.6"/></svg>
+        <span>Friends</span>
+      </button>
+      <button class="tab" data-target="profile">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+        <span>Profile</span>
+      </button>
+    </nav>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/activities.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="js/message.js"></script>
+  <script src="js/later.js"></script>
+  <script src="js/later-ask.js"></script>
+  <script src="js/later-results.js"></script>
+  <script src="js/invites.js"></script>
+  <script src="js/plans.js"></script>
+  <script src="js/change.js"></script>
+  <script src="js/friends.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>
